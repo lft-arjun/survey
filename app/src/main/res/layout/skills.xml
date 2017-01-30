@@ -8,7 +8,7 @@
     android:padding="10dp" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:textColor="#ffffff"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
         <requestFocus />
     </EditText>
     <Button
-        android:id="@+id/okBtn"
+        android:id="@+id/addBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -34,6 +34,6 @@
         android:fontFamily="monospace"
         android:textColor="#09FF00"
         android:background="@drawable/btn_bg"
-        android:text="OK \u2713"
+        android:text="Add \u2713"
         />
 </LinearLayout>
