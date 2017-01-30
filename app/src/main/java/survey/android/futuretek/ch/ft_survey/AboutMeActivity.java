@@ -51,8 +51,8 @@ public class AboutMeActivity extends BaseActivity {
          *
          */
         textArray = new ArrayList<>();
-        textArray.add("I'm a Full Stack developer with over 5 years of experience in web based applications. My experience includes building and deploying scalable web based solutions. I have consistently delivered projects on time and under budget earning me a good reputation among my colleagues and clients.\n");
-        textArray.add("Working with international companies, I have developed skills required to work collaboratively within a team of varying size and skills. Among other skills, my ability to communicate with client & to grasp their business needs is often appreciated. My programming expertise include PHP(Laravel4.x Laravel 5.x, Zend1 and Zend2, YII2), Ruby on Rails, AngularJS, Jquery, Bootstrap 3, AWS. I believe in an agile workflow and have experience with Scrum and Kanban.");
+        textArray.add("My name is Arjun Sunar. I'm a Full Stack developer with over 5 years of experience in web based applications. My experience includes building and deploying scalable web based solutions. I have consistently delivered projects on time and under budget earning me a good reputation among my colleagues and clients.\n");
+        textArray.add("Working with international companies, I have developed skills required to work collaboratively within a team of varying size and skills. Among other skills, my ability to communicate with client & to grasp their business needs is often appreciated. My programming expertise include PHP(Laravel4.x Laravel 5.x, Zend1 and Zend2, YII2), Ruby on Rails, AngularJS, Jquery, Bootstrap 3.");
         //Display the next button and activate
         animateText(textArray, new AnimationListDone() {
             public void done() {
