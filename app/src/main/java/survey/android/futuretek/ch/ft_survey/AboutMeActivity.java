@@ -1,8 +1,8 @@
 /**
- * Copyright (C) futuretek AG 2017
+ * Copyright (C) futuretek AG 2016
  * All Rights Reserved
  *
- * @author linux Arjun
+ * @author Artan Veliju
  */
 package survey.android.futuretek.ch.ft_survey;
 
@@ -17,7 +17,11 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AboutFTActivity extends BaseActivity {
+/**
+ * Class tell about the your self
+ *
+ */
+public class AboutMeActivity extends BaseActivity {
     private String userName;
     private Button nextBtn;
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +30,9 @@ public class AboutFTActivity extends BaseActivity {
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLACK));
 
         nextBtn = (Button) findViewById(R.id.nextBtn);
-        //display About me after clicking next button
         nextBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(AboutFTActivity.this, AboutMeActivity.class));
+                startActivity(new Intent(AboutMeActivity.this, SkillsActivity.class));
             }
         });
 
@@ -40,16 +43,17 @@ public class AboutFTActivity extends BaseActivity {
         nextBtn.setTextColor(Color.GRAY);
         nextBtn.setEnabled(false);
         ((ViewGroup)findViewById(R.id.textLayout)).removeAllViews();
+        //get User name from database
         userName=getDatabase().get("usersName");
         List<String> textArray;
-
+        /**
+         * Add text to display about yourself
+         *
+         */
         textArray = new ArrayList<>();
-        textArray.add("Futuretek is growing and growing!");
-        textArray.add("The goal for the developer section is to bring the best people together and to build incredible things.");
-        if(userName!=null)
-            textArray.add(userName);
-        textArray.add("Do you think you are one of them?");
-        textArray.add("Tell us more about what you know.");
+        textArray.add("I'm a Full Stack developer with over 5 years of experience in web based applications. My experience includes building and deploying scalable web based solutions. I have consistently delivered projects on time and under budget earning me a good reputation among my colleagues and clients.\n");
+        textArray.add("Working with international companies, I have developed skills required to work collaboratively within a team of varying size and skills. Among other skills, my ability to communicate with client & to grasp their business needs is often appreciated. My programming expertise include PHP(Laravel4.x Laravel 5.x, Zend1 and Zend2, YII2), Ruby on Rails, AngularJS, Jquery, Bootstrap 3, AWS. I believe in an agile workflow and have experience with Scrum and Kanban.");
+        //Display the next button and activate
         animateText(textArray, new AnimationListDone() {
             public void done() {
                 Button nextBtn = ((Button) findViewById(R.id.nextBtn));

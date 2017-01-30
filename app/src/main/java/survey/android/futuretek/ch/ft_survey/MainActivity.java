@@ -73,18 +73,21 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    /**
+     * Handle user input  and save user into database
+     */
     private void requestUserName(){
         if(userName==null){
             openInputDialog(new View.OnClickListener() {
                 public void onClick(View v) {
+                    //Read input from the view
                     EditText userInput = ((EditText) v.findViewById(R.id.userInput));
+                    //Get user input
                     userName = userInput.getText().toString();
-//                    try {
-//                        userName = getDatabase().get(userName);
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-
+                    /**
+                     * Check if user input is empty for not
+                     * If user input null/empty then display message
+                     */
                     if (userName == null || userName.isEmpty()) {
                         List<String> textArray = new ArrayList<String>(1);
                         textArray.add("Didn't get your name...");
@@ -95,21 +98,38 @@ public class MainActivity extends BaseActivity {
                             }
                         });
                     } else {
+                        //insert user input into database
                         getDatabase().put("usersName", userName);
                         List<String> textArray = new ArrayList<String>(2);
                         textArray.add("Ah, nice.");
                         textArray.add("Hi " + userName + "!");
-                        animateText(textArray, new AnimationListDone() {
-                            public void done() {
-                                activateNextButton();
-                            }
-                        });
+                        String currentUser = null;
+                        try {
+                            //Get current user stored
+                            currentUser = getDatabase().get("usersName");
+                        } catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        /*
+                         * Check if current user is stored or not
+                         * And activate the next button
+                         */
+                        if (currentUser == userName) {
+                            animateText(textArray, new AnimationListDone() {
+                                public void done() {
+                                    activateNextButton();
+                                }
+                            });
+                        }
                     }
                 }
             });
         }
     }
 
+    /**
+     * Enable the next button
+     */
     private void activateNextButton(){
         Button nextBtn = ((Button) findViewById(R.id.nextBtn));
         nextBtn.setTextColor(Color.GREEN);
