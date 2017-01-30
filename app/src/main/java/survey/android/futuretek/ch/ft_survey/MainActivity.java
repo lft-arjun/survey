@@ -92,11 +92,7 @@ public class MainActivity extends BaseActivity {
                         List<String> textArray = new ArrayList<String>(1);
                         textArray.add("Didn't get your name...");
                         textArray.add(userInput.getText().toString());
-                        animateText(textArray, new AnimationListDone() {
-                            public void done() {
-                                activateNextButton();
-                            }
-                        });
+                        
                     } else {
                         //insert user input into database
                         getDatabase().put("usersName", userName);
