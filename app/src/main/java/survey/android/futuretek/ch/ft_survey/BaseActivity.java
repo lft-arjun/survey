@@ -43,6 +43,7 @@ public class BaseActivity extends Activity {
             db.put("firstTimeOnThisApp", true);
             db.putSkill("Android");
             db.putSkill("Java");
+            db.putSkill("Software Developer"); // Added  new Software Developer this is will display only app is loaded first time
         }
     }
 
